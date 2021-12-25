@@ -32,10 +32,13 @@
     background-color: white;
     border: 0px;
     margin: 1%;
+    min-width: 40px;
+    min-height: 25px;
 }
 
 .ripple {
   background-position: center;
+  border-radius: 5px;
   transition: background 0.5s;
 }
 
@@ -44,7 +47,7 @@
 }
 
 .ripple:active {
-  background-color: #818385ad;
+  background-color: rgba(182, 180, 180, 0.563);
   background-size: 100%;
   transition: background 0s;
 }
