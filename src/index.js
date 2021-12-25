@@ -1,0 +1,1 @@
+const card = require('./card');
