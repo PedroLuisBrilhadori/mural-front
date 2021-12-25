@@ -48,7 +48,11 @@ function clearcardCache() {
 }
 
 function setcardCache(index) {
-    changeAllCard(cardCache[index].title, cardCache[index].content)
+    if(cardCache.length > 0 && index >= 0){
+        changeAllCard(cardCache[index].title, cardCache[index].content)
+    } else {
+        throw Error('Histórico do card não possui este registro');
+    }
 }
 
 module.exports = {
