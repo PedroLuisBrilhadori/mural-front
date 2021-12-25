@@ -8,6 +8,9 @@
 .card-title{
     border-bottom: 1px solid grey;
     border-radius: 3px;
+
+    display: flex;
+    justify-content: center;
 }
 
 .card-title-text{
@@ -23,6 +26,8 @@
 }
 
 .card-actions{
+    display: flex;
+    justify-content: end;
     border-top: 1px solid grey;
     border-radius: 3px;
 }
