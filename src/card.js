@@ -1,26 +1,38 @@
-class CardControl {
-    changeContent(content){
-        document.getElementById('card-content').innerHTML = content;
-    }
+function changeContent(content){
+    document.getElementById('card-content').innerHTML = content;
+}
 
-    changeTitle(title) {
-        document.getElementById('card-title-text').innerHTML = title;
-    }
+function changeTitle(title) {
+    document.getElementById('card-title-text').innerHTML = title;
+}
 
-    changeAllCard(title, content){
-        this.changeTitle(title);
-        this.changeContent(content);
-    }
+function changeAllCard(title, content){
+    changeTitle(title);
+    changeContent(content);
+}
 
-    hiddenButton(){
-        document.getElementById('card-button-ok').setAttribute('hidden', true);
-    }
+function hiddenButton(){
+    document.getElementById('card-button-ok').setAttribute('hidden', true);
+}
 
-    lookButton () {
-        document.getElementById('card-button-ok').removeAttribute('hidden');
-    }
+function lookButton () {
+    document.getElementById('card-button-ok').removeAttribute('hidden');
+}
+
+function addEventLinster(type, linster, button){
+    document.getElementById(`card-button-${button}`).addEventListener(type, linster);
+}
+
+function removeEventLinster(type, linster, button) {
+    document.getElementById(`card-button-${button}`).removeEventListener(type, linster);
 }
 
 module.exports = {
-    CardControl
+    changeContent,
+    changeTitle,
+    changeAllCard,
+    hiddenButton,
+    lookButton,
+    addEventLinster,
+    removeEventLinster
 }
