@@ -1,15 +1,21 @@
 let cardCache = [];
 
-function changeContent(content){
+function changeContent(content, cache = true){
     document.getElementById('card-content').innerHTML = content;
+    if(cahce){
+        pushcardCache();
+    }
 }
 
-function changeTitle(title) {
+function changeTitle(title, cache = true) {
     document.getElementById('card-title-text').innerHTML = title;
+    if(cahce){
+        pushcardCache();
+    }
 }
 
 function changeAllCard(title, content){
-    changeTitle(title);
+    changeTitle(title, false);
     changeContent(content);
     console.log(cardCache);
 }
@@ -30,7 +36,7 @@ function removeEventLinster(type, linster, button) {
     document.getElementById(`card-button-${button}`).removeEventListener(type, linster);
 }
 
-function pushcardCache() {
+function _pushcardCache() {
     const card = ({
         title: document.getElementById('card-title-text').innerHTML,
         content: document.getElementById('card-content').innerHTML
@@ -77,5 +83,4 @@ module.exports = {
     getcardCache,
     clearcardCache,
     setcardCache,
-    pushcardCache
 }
