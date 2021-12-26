@@ -1,19 +1,17 @@
 let cardCache = [];
 
 function changeContent(content){
-    _pushcardCache();
     document.getElementById('card-content').innerHTML = content;
 }
 
 function changeTitle(title) {
-    _pushcardCache();
     document.getElementById('card-title-text').innerHTML = title;
 }
 
 function changeAllCard(title, content){
-    _pushcardCache();
     changeTitle(title);
     changeContent(content);
+    console.log(cardCache);
 }
 
 function hiddenButton(){
@@ -32,11 +30,24 @@ function removeEventLinster(type, linster, button) {
     document.getElementById(`card-button-${button}`).removeEventListener(type, linster);
 }
 
-function _pushcardCache() {
-    cardCache.push({
+function pushcardCache() {
+    const card = ({
         title: document.getElementById('card-title-text').innerHTML,
         content: document.getElementById('card-content').innerHTML
     });
+
+    if(!_include(card))
+        cardCache.push(card);
+}
+
+function _include(card){
+    let include = false;
+    cardCache.forEach( cache => {
+        if (cache.title == card.title && cache.content == card.content) {   
+            include = true;
+        }
+    });
+    return include;
 }
 
 function getcardCache(index) {
@@ -65,5 +76,6 @@ module.exports = {
     removeEventLinster,
     getcardCache,
     clearcardCache,
-    setcardCache
+    setcardCache,
+    pushcardCache
 }
