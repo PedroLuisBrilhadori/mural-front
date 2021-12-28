@@ -10,7 +10,9 @@
 .card-title{
     border-bottom: 1px solid grey;
     border-radius: 3px;
+    color: white;
 
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
     display: flex;
     justify-content: center;
