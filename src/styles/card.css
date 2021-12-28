@@ -1,10 +1,10 @@
 .card-conteiner{
     background-color: white;
     border-radius: 5px;
-    max-width: 300px;
+    max-width: 250px;
     box-shadow:  0 0 10px black;
-    flex-grow: 2;
     margin: 25px;
+    flex: 0 0 100%;
 }
 
 .card-title{
