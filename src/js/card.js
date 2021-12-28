@@ -1,30 +1,23 @@
-function cardCreate(post) {
+function cardCreate(post, i) {
+    console.log(post, i);
     let card = document.getElementsByTagName("template")[0];
     let clone = card.content.cloneNode(true);
-    document.getElementById('cards').appendChild(clone)
+    document.getElementById('cards').appendChild(clone);
+
+    document.getElementsByClassName('card-title-text')[i].innerHTML = post.title;
+    document.getElementsByClassName('card-content')[i].innerHTML = post.message;
+    document.getElementsByClassName('author')[i].innerHTML = 'Autor: ' + post.author;
+    
+    if(post.to){
+        document.getElementsByClassName('to')[i].innerHTML = 'Para: ' + post.to;
+        document.getElementsByClassName('to')[i].removeAttribute('hidden');
+    }
+    else 
+        console.log(document.getElementsByName('card-footer')[i].className = "card-footer-center")
 }
 
-function hiddenButton(){
-    document.getElementById('card-button-ok').setAttribute('hidden', true);
-}
-
-function lookButton () {
-    document.getElementById('card-button-ok').removeAttribute('hidden');
-}
-
-function addEventLinster(type, linster, button){
-    document.getElementById(`card-button-${button}`).addEventListener(type, linster);
-}
-
-function removeEventLinster(type, linster, button) {
-    document.getElementById(`card-button-${button}`).removeEventListener(type, linster);
-}
 
 
 module.exports = {
     cardCreate,
-    hiddenButton,
-    lookButton,
-    addEventLinster,
-    removeEventLinster,
 }

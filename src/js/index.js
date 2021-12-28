@@ -7,7 +7,7 @@ let data = fetch(url).then(response => {
 }).then()
 
 data.then(posts => {
-    Object.keys(posts).forEach( i => {
+    Object.keys(posts).forEach( (i, index) => {
         const post = {
             id: posts[i].id,
             title: posts[i].title,
@@ -15,10 +15,8 @@ data.then(posts => {
             author: posts[i].author,
             to: posts[i].to ? posts[i].to : null
         }     
-        console.log(post)
+        card.cardCreate(post, index)  
     })
 })
 
-for(let i = 0; i< 6; i++)
-    card.cardCreate()   
 

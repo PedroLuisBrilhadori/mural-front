@@ -35,6 +35,14 @@
     border-radius: 3px;
 }
 
+.card-footer-center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-top: 1px solid grey;
+    border-radius: 3px;
+}
+
 .credits{
     margin: 10px;
 }
@@ -64,3 +72,4 @@
   background-size: 100%;
   transition: background 0s;
 }
+
