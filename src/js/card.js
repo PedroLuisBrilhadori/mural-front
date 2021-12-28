@@ -1,23 +1,7 @@
-let cardCache = [];
-
-function changeContent(content, cache = true){
-    document.getElementById('card-content').innerHTML = content;
-    if(cahce){
-        pushcardCache();
-    }
-}
-
-function changeTitle(title, cache = true) {
-    document.getElementById('card-title-text').innerHTML = title;
-    if(cahce){
-        pushcardCache();
-    }
-}
-
-function changeAllCard(title, content){
-    changeTitle(title, false);
-    changeContent(content);
-    console.log(cardCache);
+function cardCreate(post) {
+    let card = document.getElementsByTagName("template")[0];
+    let clone = card.content.cloneNode(true);
+    document.getElementById('cards').appendChild(clone)
 }
 
 function hiddenButton(){
@@ -36,51 +20,11 @@ function removeEventLinster(type, linster, button) {
     document.getElementById(`card-button-${button}`).removeEventListener(type, linster);
 }
 
-function _pushcardCache() {
-    const card = ({
-        title: document.getElementById('card-title-text').innerHTML,
-        content: document.getElementById('card-content').innerHTML
-    });
-
-    if(!_include(card))
-        cardCache.push(card);
-}
-
-function _include(card){
-    let include = false;
-    cardCache.forEach( cache => {
-        if (cache.title == card.title && cache.content == card.content) {   
-            include = true;
-        }
-    });
-    return include;
-}
-
-function getcardCache(index) {
-    return cardCache[index];
-}
-
-function clearcardCache() {
-    cardCache = [];
-}
-
-function setcardCache(index) {
-    if(cardCache.length > 0 && index >= 0){
-        changeAllCard(cardCache[index].title, cardCache[index].content)
-    } else {
-        throw Error('Histórico do card não possui este registro');
-    }
-}
 
 module.exports = {
-    changeContent,
-    changeTitle,
-    changeAllCard,
+    cardCreate,
     hiddenButton,
     lookButton,
     addEventLinster,
     removeEventLinster,
-    getcardCache,
-    clearcardCache,
-    setcardCache,
 }

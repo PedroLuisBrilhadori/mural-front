@@ -1,8 +1,10 @@
 .card-conteiner{
     background-color: white;
     border-radius: 5px;
-    max-width: 600px;
+    max-width: 300px;
     box-shadow:  0 0 10px black;
+    flex-grow: 2;
+    margin: 25px;
 }
 
 .card-title{
@@ -25,11 +27,16 @@
     margin: 10px;
 }
 
-.card-actions{
+.card-footer{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-content: center;
     border-top: 1px solid grey;
     border-radius: 3px;
+}
+
+.credits{
+    margin: 10px;
 }
 
 
