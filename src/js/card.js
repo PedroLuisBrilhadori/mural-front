@@ -13,6 +13,12 @@ function cardCreate(post, i) {
     }
     else 
         document.getElementsByName('card-footer')[i].className = "card-footer-center"
+
+    if((i % 2) == 0)
+        document.getElementsByClassName('card-title')[i].className += ' title-yellow';
+    else 
+        document.getElementsByClassName('card-title')[i].className += ' title-red';
+
 }
 
 

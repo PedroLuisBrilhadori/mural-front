@@ -1,5 +1,5 @@
 .card-conteiner{
-    background-color: white;
+    background-color: #ceecef;
     border-radius: 5px;
     max-width: 250px;
     box-shadow:  0 0 10px black;
@@ -11,8 +11,17 @@
     border-bottom: 1px solid grey;
     border-radius: 3px;
 
+
     display: flex;
     justify-content: center;
+}
+
+.title-red{
+    background-color: #fb0c06;
+}
+
+.title-yellow{
+    background-color:  #ffc52c;
 }
 
 .card-title-text{
@@ -20,7 +29,6 @@
 }
 
 .card-content-conteiner{
-    background-color: white;
 }
 
 .card-content {
