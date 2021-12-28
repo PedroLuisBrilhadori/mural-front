@@ -1,5 +1,4 @@
 function cardCreate(post, i) {
-    console.log(post, i);
     let card = document.getElementsByTagName("template")[0];
     let clone = card.content.cloneNode(true);
     document.getElementById('cards').appendChild(clone);
@@ -13,7 +12,7 @@ function cardCreate(post, i) {
         document.getElementsByClassName('to')[i].removeAttribute('hidden');
     }
     else 
-        console.log(document.getElementsByName('card-footer')[i].className = "card-footer-center")
+        document.getElementsByName('card-footer')[i].className = "card-footer-center"
 }
 
 
