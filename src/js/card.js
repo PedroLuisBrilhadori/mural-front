@@ -15,13 +15,47 @@ function cardCreate(post, i) {
     else 
         document.getElementsByName('card-footer')[i].className = "card-footer-center"
 
-    if((i % 2) == 0)
+    colorCards(i, ((i % 2) == 0));
+}
+
+function colorCards(i, yellow) {
+    if(yellow)
         document.getElementsByClassName('card-title')[i].className += ' title-yellow';
     else 
         document.getElementsByClassName('card-title')[i].className += ' title-red';
+}
 
+function cardFilter() {
+    if(location.search.includes('search')){
+        let search = '';
+        for(let i = location.search.indexOf('=') + 1; i < location.search.length ; i++){
+            search += location.search[i];
+        }
+
+        search = decodeURI(search);
+        search = search.toUpperCase();
+
+        let cards = document.getElementsByClassName('card-conteiner');
+        let indexForColors = [];
+
+        for(let i = 0; i < cards.length; i++){
+            let footer = cards[i].lastElementChild.innerText;
+            footer = footer.toUpperCase();
+            if(footer.indexOf(search) < 0){
+                cards[i].style.display = 'none';
+            } else {
+                indexForColors.push(i);
+            }
+        }
+
+        for(let i = 0; i < indexForColors.length; i++){
+            colorCards(indexForColors[i], ((i % 2) === 0))
+        }
+
+    }
 }
 
 module.exports = {
     cardCreate,
+    cardFilter
 }

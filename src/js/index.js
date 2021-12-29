@@ -17,9 +17,12 @@ data.then(posts => {
         }     
         card.cardCreate(post, index)  
     })
+
+    card.cardFilter();
 })
 
-document.getElementById("button-search").onclick(() => {
-    document.getElementById('form-search').sumbmit();
+
+document.getElementById("button-search").addEventListener('click', () => {
+    document.getElementById('form-search').submit()
 })
 
