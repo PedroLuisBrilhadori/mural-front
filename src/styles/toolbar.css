@@ -50,6 +50,8 @@
 }
 
 .fa{
+    background: none;
+    border: none;
     box-sizing: border-box;
     padding: 10px;
     width: 42.5px;
