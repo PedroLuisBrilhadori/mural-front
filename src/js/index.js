@@ -2,7 +2,7 @@ const url = 'https://app-mural.herokuapp.com/mural';
 const card = require("./card");
 
 
-let data = fetch('./js/cache.json').then(response => {
+let data = fetch(url).then(response => {
     return response.json();
 }).then();
 
