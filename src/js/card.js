@@ -2,7 +2,9 @@ function cardCreate(post, i) {
     let card = document.getElementsByTagName("template")[0];
     let clone = card.content.cloneNode(true);
     document.getElementById('cards').appendChild(clone);
-
+    while(post.message.indexOf('\n') > -1){
+        post.message = post.message.replace('\n', '<br>');
+    } 
     document.getElementsByClassName('card-title-text')[i].innerHTML = post.title;
     document.getElementsByClassName('card-content')[i].innerHTML = post.message;
     document.getElementsByClassName('author')[i].innerHTML = 'Autor: ' + post.author;
