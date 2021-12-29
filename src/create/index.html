@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <link rel="stylesheet" type="text/css" href="../styles/toolbar.css">
+    <link rel="stylesheet" type="text/css" href="../styles/form.css">
 </head>
 <body>
     <div class="toolbar-app" id="toolbar">
@@ -27,5 +28,27 @@
             </a>
         </div>
     </div>
+
+    <div class="">
+        <form autocomplete="off" class="form-create">
+            <label for="title" >Título:</label>
+            <input name="title" id="title" class="input title" type="text" placeholder="Título..." required> <br>
+            
+            <label for="message" >Menssagem:</label>
+            <textarea 
+                id="message" name="message" rows="6" cols="30" 
+                class="textarea" placeholder="Menssagem..." 
+                autocomplete="off" required
+            >
+            </textarea> <br>
+            
+            <label for="author" >De:</label>
+            <input id="author" name="author" class="input author" type="text" placeholder="Seu nome..."> 
+            
+            <label for="to" >De:</label>
+            <input id="to" name="to" class="input to" type="text" placeholder="Nome de alguém..."> 
+        </form>
+    </div>
+
 </body>
 </html>

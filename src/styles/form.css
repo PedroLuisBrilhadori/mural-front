@@ -1,0 +1,36 @@
+.form-create{
+    margin: 20px;
+    text-align: center;
+}
+
+.input{
+    margin: 10px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+
+.title{
+    width: 70%;
+    max-width: 400px;
+}
+
+.author{
+    width: 35%;
+    max-width: 100px;
+}
+
+.to{
+    width: 35%;
+    max-width: 100px;
+}
+
+.textarea{
+    margin: 10px;
+    height: auto;
+    resize: none;
+}
+
+.title:invalid,
+.textarea:invalid {
+    border-bottom: 2px solid red;
+}
