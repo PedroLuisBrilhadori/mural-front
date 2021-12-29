@@ -35,6 +35,7 @@ function cardFilter() {
         search = decodeURI(search);
         search = search.toUpperCase();
         search = search.replace('+', '');
+        search = search.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
         let cards = document.getElementsByClassName('card-conteiner');
         let indexForColors = [];
@@ -44,6 +45,7 @@ function cardFilter() {
             footer = footer.toUpperCase();
             footer = footer.replace(' ', '');
             footer = footer.replace(' ', '');
+            footer = footer.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
             if(footer.indexOf(search) < 0){
                 cards[i].style.display = 'none';
             } else {
