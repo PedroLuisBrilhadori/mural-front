@@ -28,3 +28,11 @@ document.getElementById("button-search").addEventListener('click', () => {
     }
 })
 
+if(location.search){
+    if(location.search.indexOf('true') < -1){
+        window.alert('Ocorreu um erro, menssagem não criada')
+    } else {
+        window.alert('Menssagem enviada!!')
+        location.search = '';
+    } 
+}
