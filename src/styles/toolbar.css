@@ -10,8 +10,16 @@
 
 .app-title{
     margin: auto;
+    font-size: large;
 }
 
 .toolbar-icon{
-    margin: 15px;
+    margin: 10px;
 }
+
+.icon{
+    margin: 10px;
+    width: 60%;
+    height: 60%;
+}
+
