@@ -13,8 +13,6 @@
     <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <link rel="stylesheet" type="text/css" href="../styles/toolbar.css">
     <link rel="stylesheet" type="text/css" href="../styles/form.css">
-
-    <script src="./main.js"></script>
 </head>
 <body>
     <div class="toolbar-app" id="toolbar">
@@ -29,22 +27,22 @@
             </a>
         </div>
         <div class="toolbar-icon ripple">
-            <a class="a-title" href="..">
+            <button class="button-toolbar" id="done">
                 <img class="icon" src="../assets/icons/done.svg">
-            </a>
+            </button>
         </div>
     </div>
 
     <div class="form-message">
-        <form action="#">
+        <form id="form" autocomplete="off" action="https://app-mural.herokuapp.com/mural/create/" method="post">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input inputs" type="text" id="title" name="title">
+                <input required class="mdl-textfield__input inputs" type="text" id="title" name="title">
                 <label class="mdl-textfield__label labels" for="sample3">Titulo da sua menssagem...</label>
             </div> <br>
 
 
             <div class="mdl-textfield mdl-js-textfield">
-                <textarea class="mdl-textfield__input inputs" type="text" rows= "3" id="message" name="message" ></textarea>
+                <textarea class="mdl-textfield__input inputs" type="text" rows="6" cols="30" required id="message" name="message" ></textarea>
                 <label class="mdl-textfield__label labels" for="sample5">Digite sua menssagem aqui...</label>
             </div> <br>
 
@@ -59,6 +57,7 @@
             </div> <br>
         </form>
     </div>
+    <script src="./main.js"></script>
 </body>
 </html>
 

@@ -8,6 +8,11 @@
     justify-content: center;
 }
 
+.button-toolbar{
+    background: none;
+    border: none;
+}
+
 .a-title{
     text-decoration: none;
 }
