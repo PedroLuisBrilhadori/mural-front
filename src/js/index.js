@@ -19,4 +19,7 @@ data.then(posts => {
     })
 })
 
+document.getElementById("button-search").onclick(() => {
+    document.getElementById('form-search').sumbmit();
+})
 
