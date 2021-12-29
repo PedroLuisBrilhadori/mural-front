@@ -36,13 +36,13 @@
     <div class="form-message">
         <form id="form" autocomplete="off" action="https://app-mural.herokuapp.com/mural/create/" method="post">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input required class="mdl-textfield__input inputs" type="text" id="title" name="title">
+                <input maxlength="40" required class="mdl-textfield__input inputs" type="text" id="title" name="title">
                 <label class="mdl-textfield__label labels" for="sample3">Titulo da sua menssagem...</label>
             </div> <br>
 
 
             <div class="mdl-textfield mdl-js-textfield">
-                <textarea class="mdl-textfield__input inputs" type="text" rows="6" cols="30" required id="message" name="message" ></textarea>
+                <textarea maxlength="300" class="mdl-textfield__input inputs" type="text" rows="6" cols="30" required id="message" name="message" ></textarea>
                 <label class="mdl-textfield__label labels" for="sample5">Digite sua menssagem aqui...</label>
             </div> <br>
 
