@@ -8,6 +8,14 @@
     justify-content: center;
 }
 
+.a-title{
+    text-decoration: none;
+}
+
+.a-title:visited{
+    color: #e7edea;
+}
+
 .app-title{
     margin: auto;
     font-size: large;
