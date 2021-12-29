@@ -34,6 +34,7 @@ function cardFilter() {
 
         search = decodeURI(search);
         search = search.toUpperCase();
+        search = search.replace('+', '');
 
         let cards = document.getElementsByClassName('card-conteiner');
         let indexForColors = [];
@@ -41,6 +42,8 @@ function cardFilter() {
         for(let i = 0; i < cards.length; i++){
             let footer = cards[i].lastElementChild.innerText;
             footer = footer.toUpperCase();
+            footer = footer.replace(' ', '');
+            footer = footer.replace(' ', '');
             if(footer.indexOf(search) < 0){
                 cards[i].style.display = 'none';
             } else {
