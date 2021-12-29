@@ -1,27 +1,26 @@
 .form-create{
     margin: 20px;
-    text-align: center;
+    position: relative;
 }
 
-.input{
-    margin: 10px;
-    height: 30px;
-    border: 1px solid #ccc;
+input{
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: none;
+    margin: 25px;
 }
 
-.title{
-    width: 70%;
-    max-width: 400px;
+label {
+    position: absolute;
+    margin: 20px;
+    left: 0;
+    transform-origin: 0 0;
+    transition: 0.2s ease-in-out;
 }
 
-.author{
-    width: 35%;
-    max-width: 100px;
-}
-
-.to{
-    width: 35%;
-    max-width: 100px;
+input:focus + label{
+    transform: translateY(-1em) scale(0.8);
 }
 
 .textarea{
