@@ -10,6 +10,7 @@ function cardCreate(post, i) {
     if(post.to){
         document.getElementsByClassName('to')[i].innerHTML = 'Para: ' + post.to;
         document.getElementsByClassName('to')[i].removeAttribute('hidden');
+        document.getElementsByClassName('author')[i].innerHTML = 'De: ' + post.author;
     }
     else 
         document.getElementsByName('card-footer')[i].className = "card-footer-center"
@@ -20,8 +21,6 @@ function cardCreate(post, i) {
         document.getElementsByClassName('card-title')[i].className += ' title-red';
 
 }
-
-
 
 module.exports = {
     cardCreate,
