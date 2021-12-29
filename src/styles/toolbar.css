@@ -1,5 +1,13 @@
 .toolbar-app{
+    color: #e7edea;
     height: 50px;
     width: 100%;
     background-color: #030d4f;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.app-title{
+    margin: auto;
 }
