@@ -2,9 +2,9 @@ const url = 'https://app-mural.herokuapp.com/mural';
 const card = require("./card");
 
 
-let data = fetch('./cache.json').then(response => {
-    return response.json()
-}).then()
+let data = fetch('./js/cache.json').then(response => {
+    return response.json();
+}).then();
 
 data.then(posts => {
     Object.keys(posts).forEach( (i, index) => {
