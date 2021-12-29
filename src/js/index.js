@@ -1,4 +1,4 @@
-const url = 'http://192.168.0.122:3000/mural/'
+const url = 'https://app-mural.herokuapp.com/mural'
 const card = require("./card");
 
 
