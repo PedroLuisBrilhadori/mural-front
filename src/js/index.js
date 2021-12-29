@@ -23,6 +23,8 @@ data.then(posts => {
 
 
 document.getElementById("button-search").addEventListener('click', () => {
-    document.getElementById('form-search').submit()
+    if(document.getElementById('search').value) {
+        document.getElementById('form-search').submit()
+    }
 })
 
