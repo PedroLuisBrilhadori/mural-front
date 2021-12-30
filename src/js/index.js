@@ -27,7 +27,7 @@ data.then(posts => {
         }     
         card.cardCreate(post, index + 1)  
     })
-
+    document.getElementById('loader').parentNode.removeChild(document.getElementById('loader'));
     card.cardFilter();
 })
 
