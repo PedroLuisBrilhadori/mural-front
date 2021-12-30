@@ -1,7 +1,7 @@
 .card-conteiner{
     background-color: #e7edea;
     border-radius: 5px;
-    max-width: 300px;
+    max-width: 350px;
     box-shadow:  0 0 10px black;
     margin: 25px;
     flex: 0 0 100%;
@@ -52,14 +52,4 @@
 
 .credits{
     margin: 20px;
-}
-
-
-.button-colored{
-    color: blue;
-    background-color: white;
-    border: 0px;
-    margin: 10px;
-    min-width: 40px;
-    min-height: 25px;
 }
