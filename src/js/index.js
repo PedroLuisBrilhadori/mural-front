@@ -9,6 +9,8 @@ card.msgInit({
     to: 'Todos'
 });
 
+card.cardFilter();
+
 let data = fetch(url).then(response => {
     return response.json();
 }).then();
