@@ -36,10 +36,11 @@ document.getElementById("button-search").addEventListener('click', () => {
 })
 
 if(location.search){
-    if(location.search.indexOf('true') < -1){
-        window.alert('Ocorreu um erro, menssagem não criada')
+    if(location.search.indexOf('true') > -1){
+        if(window.confirm('Menssagem enviada!!'))
+            location.search = '';
     } else {
-        window.alert('Menssagem enviada!!')
-        location.search = '';
+        if(window.confirm('Ocorreu um erro, menssagem não enviada!'))
+            location.search = '';
     } 
 }
