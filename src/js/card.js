@@ -7,7 +7,7 @@ function cardCreate(post, i) {
     } 
     document.getElementsByClassName('card-title-text')[i].innerHTML = post.title;
     document.getElementsByClassName('card-content')[i].innerHTML = post.message;
-    document.getElementsByClassName('author')[i].innerHTML = 'Autor: ' + post.author;
+    document.getElementsByClassName('author')[i].innerHTML = 'Autor(a): ' + post.author;
     
     if(post.to){
         document.getElementsByClassName('to')[i].innerHTML = 'Para: ' + post.to;
