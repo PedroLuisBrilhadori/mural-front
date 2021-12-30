@@ -50,27 +50,13 @@ function colorCards(i, yellow) {
 }
 
 function cardFilter() {
-    if(location.search.includes('search')){
-        let search = '';
-        for(let i = location.search.indexOf('=') + 1; i < location.search.indexOf('&') ; i++){
-            search += location.search[i];
-        }
-
-        search = decodeURI(search);
-        search = search.toUpperCase();
-        search = search.replace('+', '');
-        search = search.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
-        let cards = document.getElementsByClassName('card-conteiner');
+    if(getSearch()){
+        let search = getSearch();
         let indexForColors = [];
+        let cards = document.getElementsByClassName('card-conteiner');
 
         for(let i = 0; i < cards.length; i++){
-            let footer = cards[i].lastElementChild.innerText;
-            footer = footer.toUpperCase();
-            footer = footer.replace(' ', '');
-            footer = footer.replace(' ', '');
-            footer = footer.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-            if(footer.indexOf(search) < 0){
+            if(getFooterString(i).indexOf(search) < 0){
                 cards[i].style.display = 'none';
             } else {
                 indexForColors.push(i);
@@ -80,12 +66,52 @@ function cardFilter() {
         for(let i = 0; i < indexForColors.length; i++){
             colorCards(indexForColors[i], ((i % 2) === 0))
         }
+    }
+}
 
+function getFooterString(i) {
+    let cards = document.getElementsByClassName('card-conteiner');
+    let footer = cards[i].lastElementChild.innerText;
+    footer = footer.toUpperCase();
+    footer = footer.replace(' ', '');
+    footer = footer.replace(' ', '');
+    footer = footer.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+    
+    return footer;
+}
+
+function getSearch() {
+    if(location.search.includes('search')){
+        let search = '';
+        for(let i = location.search.indexOf('=') + 1; i < location.search.indexOf('page') - 1; i++){
+            search += location.search[i];
+        }
+    
+        search = decodeURI(search);
+        search = search.toUpperCase();
+        search = search.replace('+', '');
+        search = search.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    
+        return search;
+    }
+    return undefined;
+}
+
+function cardPage() {
+    if(document.location.search.includes('page')){
+        let page = '';
+        for(let i = location.search.indexOf('page') + 5; i < location.search.length ; i++){
+            page += location.search[i];
+        }
+
+        return page;
     }
 }
 
 module.exports = {
     cardCreate,
     cardFilter,
+    cardPage,
     msgInit
 }
