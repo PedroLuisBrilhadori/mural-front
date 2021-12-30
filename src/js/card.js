@@ -52,7 +52,7 @@ function colorCards(i, yellow) {
 function cardFilter() {
     if(location.search.includes('search')){
         let search = '';
-        for(let i = location.search.indexOf('=') + 1; i < location.search.length ; i++){
+        for(let i = location.search.indexOf('=') + 1; i < location.search.indexOf('&') ; i++){
             search += location.search[i];
         }
 
