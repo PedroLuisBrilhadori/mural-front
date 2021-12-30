@@ -1,7 +1,10 @@
 document.getElementById('done').addEventListener('click', (e) => {
-    if(document.getElementById('form').checkValidity() && grecaptcha.getResponse() != ''){
-        document.getElementById('form').submit();
-    }
+    if( grecaptcha.getResponse() != ''){
+        if(document.getElementById('form').checkValidity()){
+            document.getElementById('form').submit();
+        }
+    } else 
+        window.alert('Confirme o CAPTCHA, por favor!');
 })
 
 if(location.search){
