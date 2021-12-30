@@ -3,3 +3,13 @@ document.getElementById('done').addEventListener('click', (e) => {
         document.getElementById('form').submit();
     }
 })
+
+if(location.search){
+    if(location.search.indexOf('true') > -1){
+        if(window.confirm('Menssagem enviada!!'))
+            location.search = '';
+    } else {
+        if(window.confirm('Ocorreu um erro, menssagem não enviada!'))
+            location.search = '';
+    } 
+}
