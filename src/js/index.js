@@ -4,7 +4,7 @@ const card = require("./card");
 
 card.msgInit({
     title: 'Menssagens Para Vocês',
-    message: 'Você pode deixar sua menssagem clicando no icone de mais a esquerda! \n\n A mensagem deve ter um titulo e pode ter até 300 caracteres (mais que o tt). \n\n Na lupinha, você pode pesquisar nomes de menssagem já deixadas.',
+    message: 'Você pode deixar sua menssagem clicando no icone de mais a esquerda! \n\n A mensagem deve ter um titulo e pode ter até 300 caracteres (mais que o tt). \n\n Na lupinha, você pode pesquisar nome de pessoas e filtrar menssagem enviadas ou recebidas para ela.',
     author: 'Pedro',
     to: 'Todos'
 });
