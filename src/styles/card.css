@@ -40,6 +40,7 @@
     align-content: center;
     border-top: 1px solid grey;
     border-radius: 3px;
+    font-size: 13px;
 }
 
 .card-footer-center{
