@@ -1,3 +1,4 @@
+import "../styles/style.scss";
 const url = 'https://app-mural.herokuapp.com/mural';
 const card = require("./card");
 
