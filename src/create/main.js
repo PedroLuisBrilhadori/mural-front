@@ -1,5 +1,5 @@
 document.getElementById('done').addEventListener('click', (e) => {
-    if(document.getElementById('form').checkValidity()){
+    if(document.getElementById('form').checkValidity() && grecaptcha.getResponse() != ''){
         document.getElementById('form').submit();
     }
 })
