@@ -3,12 +3,12 @@ const url = 'https://app-mural.herokuapp.com/mural';
 const card = require("./card");
 
 
-card.msgInit({
+card.cardCreate({
     title: 'Menssagens Para Vocês',
     message: 'Você pode deixar sua menssagem clicando no icone de mais a esquerda! \n\n A mensagem deve ter um titulo e pode ter até 300 caracteres (mais que o tt). \n\n Na lupinha, você pode pesquisar nome de pessoas e filtrar menssagem enviadas ou recebidas por ela.',
     author: 'Pedro',
     to: 'Todos'
-});
+}, 0);
 
 card.cardFilter();
 
@@ -27,6 +27,7 @@ data.then(posts => {
         }     
         card.cardCreate(post, index + 1)  
     })
+    card.cardPage();
     document.getElementById('loader').parentNode.removeChild(document.getElementById('loader'));
     card.cardFilter();
 })

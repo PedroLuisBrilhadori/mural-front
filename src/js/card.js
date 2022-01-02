@@ -20,28 +20,6 @@ function cardCreate(post, i) {
     colorCards(i, ((i % 2) == 0));
 }
 
-function msgInit(post) {
-    let card = document.getElementsByTagName("template")[0];
-    let clone = card.content.cloneNode(true);
-    document.getElementById('cards').appendChild(clone);
-    while(post.message.indexOf('\n') > -1){
-        post.message = post.message.replace('\n', '<br>');
-    } 
-    document.getElementsByClassName('card-title-text')[0].innerHTML = post.title;
-    document.getElementsByClassName('card-content')[0].innerHTML = post.message;
-    document.getElementsByClassName('author')[0].innerHTML = 'Autor: ' + post.author;
-    
-    if(post.to){
-        document.getElementsByClassName('to')[0].innerHTML = 'Para: ' + post.to;
-        document.getElementsByClassName('to')[0].removeAttribute('hidden');
-        document.getElementsByClassName('author')[0].innerHTML = 'De: ' + post.author;
-    }
-    else 
-        document.getElementsByName('card-footer')[0].className = "card-footer-center"
-
-    colorCards(0, true);
-}
-
 function colorCards(i, yellow) {
     if(yellow)
         document.getElementsByClassName('card-title')[i].className += ' title-yellow';
@@ -113,5 +91,4 @@ module.exports = {
     cardCreate,
     cardFilter,
     cardPage,
-    msgInit
 }
