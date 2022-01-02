@@ -2,22 +2,32 @@ function cardCreate(post, i) {
     let card = document.getElementsByTagName("template")[0];
     let clone = card.content.cloneNode(true);
     document.getElementById('cards').appendChild(clone);
-    while(post.message.indexOf('\n') > -1){
-        post.message = post.message.replace('\n', '<br>');
-    } 
-    document.getElementsByClassName('card-title-text')[i].innerHTML = post.title;
-    document.getElementsByClassName('card-content')[i].innerHTML = post.message;
-    document.getElementsByClassName('author')[i].innerHTML = 'Autor(a): ' + post.author;
+    post.message = setBreakLine(post.message);
+
+    setCardContent(i, post.title, post.message, post.author, post.to);
+
+    colorCards(i, ((i % 2) == 0));
+}
+
+function setCardContent(i, title = undefined, message = undefined, author = undefined, to = undefined) {
+    title ? document.getElementsByClassName('card-title-text')[i].innerHTML = title : null;
+    message ? document.getElementsByClassName('card-content')[i].innerHTML = message : null;
+    author ? document.getElementsByClassName('author')[i].innerHTML = 'Autor(a): ' + author : null;
     
-    if(post.to){
-        document.getElementsByClassName('to')[i].innerHTML = 'Para: ' + post.to;
+    if(to){
+        document.getElementsByClassName('to')[i].innerHTML = 'Para: ' + to;
         document.getElementsByClassName('to')[i].removeAttribute('hidden');
-        document.getElementsByClassName('author')[i].innerHTML = 'De: ' + post.author;
+        author ? document.getElementsByClassName('author')[i].innerHTML = 'De: ' + author : null
     }
     else 
         document.getElementsByName('card-footer')[i].className = "card-footer-center"
+}
 
-    colorCards(i, ((i % 2) == 0));
+function setBreakLine(string) {
+    while(string.indexOf('\n') > -1){
+        string = string.replace('\n', '<br>');
+    } 
+    return string;
 }
 
 function colorCards(i, yellow) {
@@ -91,4 +101,5 @@ module.exports = {
     cardCreate,
     cardFilter,
     cardPage,
+    setCardContent
 }
