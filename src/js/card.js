@@ -1,105 +1,132 @@
 function cardCreate(post, i) {
-    let card = document.getElementsByTagName("template")[0];
-    let clone = card.content.cloneNode(true);
-    document.getElementById('cards').appendChild(clone);
-    post.message = setBreakLine(post.message);
+  let card = document.getElementsByTagName("template")[0];
+  let clone = card.content.cloneNode(true);
+  document.getElementById("cards").appendChild(clone);
+  post.message = setBreakLine(post.message);
 
-    setCardContent(i, post.title, post.message, post.author, post.to);
+  cardContent = {
+    title: post.title,
+    message: post.message,
+    author: post.author,
+    to: post.to,
+  };
 
-    colorCards(i, ((i % 2) == 0));
+  setCardContent(i, cardContent);
+
+  colorCards(i, i % 2 == 0);
 }
 
-function setCardContent(i, title = undefined, message = undefined, author = undefined, to = undefined) {
-    title ? document.getElementsByClassName('card-title-text')[i].innerHTML = title : null;
-    message ? document.getElementsByClassName('card-content')[i].innerHTML = message : null;
-    author ? document.getElementsByClassName('author')[i].innerHTML = 'Autor(a): ' + author : null;
-    
-    if(to){
-        document.getElementsByClassName('to')[i].innerHTML = 'Para: ' + to;
-        document.getElementsByClassName('to')[i].removeAttribute('hidden');
-        author ? document.getElementsByClassName('author')[i].innerHTML = 'De: ' + author : null
-    }
-    else 
-        document.getElementsByName('card-footer')[i].className = "card-footer-center"
+function setCardContent(i, cardContent) {
+  let card = {
+    title: document.getElementsByClassName("card-title-text")[i].innerHTML,
+    message: document.getElementsByClassName("card-content")[i].innerHTML,
+    author: document.getElementsByClassName("author")[i].innerHTML,
+    to: document.getElementsByName("card-footer")[i],
+  };
+
+  card.title = cardContent.title;
+  card.message = cardContent.message;
+
+  if (cardContent.author) {
+    card.author = "Autor(a): " + cardContent.author;
+  }
+
+  if (!cardContent.to) {
+    card.to.className = "card-footer-center";
+    return;
+  }
+
+  card.to = "Para: " + cardContent.to;
+  card.to.removeAttribute("hidden");
+  card.author = "De: " + cardContent.author;
 }
 
 function setBreakLine(string) {
-    while(string.indexOf('\n') > -1){
-        string = string.replace('\n', '<br>');
-    } 
-    return string;
+  while (string.indexOf("\n") > -1) {
+    string = string.replace("\n", "<br>");
+  }
+  return string;
 }
 
 function colorCards(i, yellow) {
-    if(yellow)
-        document.getElementsByClassName('card-title')[i].className += ' title-yellow';
-    else 
-        document.getElementsByClassName('card-title')[i].className += ' title-red';
+  if (!yellow) {
+    document.getElementsByClassName("card-title")[i].className += " title-red";
+    return;
+  }
+
+  document.getElementsByClassName("card-title")[i].className += " title-yellow";
 }
 
 function cardFilter() {
-    if(getSearch()){
-        let search = getSearch();
-        let indexForColors = [];
-        let cards = document.getElementsByClassName('card-conteiner');
+  if (!getSearch()) {
+    return;
+  }
 
-        for(let i = 0; i < cards.length; i++){
-            if(getFooterString(i).indexOf(search) < 0){
-                cards[i].style.display = 'none';
-            } else {
-                indexForColors.push(i);
-            }
-        }
+  let search = getSearch();
+  let indexForColors = [];
+  let cards = document.getElementsByClassName("card-conteiner");
 
-        for(let i = 0; i < indexForColors.length; i++){
-            colorCards(indexForColors[i], ((i % 2) === 0))
-        }
-    }
+  for (let i = 0; i < cards.length; i++) {
+    let footerShow = getFooterString(i).indexOf(search);
+
+    footerShow < 0 ? (cards[i].style.display = "none") : indexForColors.push(i);
+  }
+
+  for (let i = 0; i < indexForColors.length; i++) {
+    colorCards(indexForColors[i], i % 2 === 0);
+  }
 }
 
 function getFooterString(i) {
-    let cards = document.getElementsByClassName('card-conteiner');
-    let footer = cards[i].lastElementChild.innerText;
-    footer = footer.toUpperCase();
-    footer = footer.replace(' ', '');
-    footer = footer.replace(' ', '');
-    footer = footer.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+  let cards = document.getElementsByClassName("card-conteiner");
+  let footer = cards[i].lastElementChild.innerText;
+  footer = footer.toUpperCase();
+  footer = footer.replace(" ", "");
+  footer = footer.replace(" ", "");
+  footer = footer.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-    
-    return footer;
+  return footer;
 }
 
 function getSearch() {
-    if(location.search.includes('search')){
-        let search = '';
-        for(let i = location.search.indexOf('=') + 1; i < location.search.indexOf('page') - 1; i++){
-            search += location.search[i];
-        }
-    
-        search = decodeURI(search);
-        search = search.toUpperCase();
-        search = search.replace('+', '');
-        search = search.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-    
-        return search;
-    }
+  if (!location.search.includes("search")) {
     return undefined;
+  }
+
+  let search = "";
+  let index = location.search.indexOf("=") + 1;
+  let pageIndex = location.search.indexOf("page") - 1;
+
+  for (index; index < pageIndex; i++) {
+    search += location.search[index];
+  }
+
+  search = decodeURI(search);
+  search = search.toUpperCase();
+  search = search.replace("+", "");
+  search = search.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+  return search;
 }
 
 function cardPage() {
-    if(document.location.search.includes('page')){
-        let page = '';
-        for(let i = location.search.indexOf('page') + 5; i < location.search.length ; i++){
-            page += location.search[i];
-        }
+  if (!document.location.search.includes("page")) {
+    return null;
+  }
 
-        return page;
-    }
+  let page = "";
+  let index = location.search.indexOf("page") + 5;
+
+  for (index; index < location.search.length; i++) {
+    page += location.search[index];
+  }
+
+  return page;
 }
 
 module.exports = {
-    cardCreate,
-    cardFilter,
-    cardPage,
-    setCardContent
-}
+  cardCreate,
+  cardFilter,
+  cardPage,
+  setCardContent,
+};
