@@ -1,65 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9642287041076704"
-    crossorigin="anonymous"></script>
-    
+  <head>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9642287041076704"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Feliz 2022!!</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" type="text/css" href="./styles/main.css">
-    <link rel="stylesheet" type="text/css" href="./styles/card.css">
-    <link rel="stylesheet" type="text/css" href="./styles/toolbar.css">
-</head>
-<body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/card.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/toolbar.css" />
+  </head>
+  <body>
     <div class="toolbar-app" id="toolbar">
-        <div class="toolbar-icon ripple">
-            <a class="a-title" href="./create/">
-                <img class="icon" src="assets/icons/add.svg">
-            </a>
-        </div>
-        <div class="app-title"> 
-            <a class="a-title" href=".">
-                Mural 2022
-            </a>
-        </div>
-        <div class="toolbar-icon">
-            <form id="form-search" autocomplete="off" class="form-search" action="">
-                <input class="input-search" name="search" id="search" type="search" maxlength="20" required>
-                <button id="button-search" class="fa icon-search">
-                    <img class="" src="assets/icons/search.svg">
-                </button>
-            </form>
-        </div>
+      <div class="toolbar-icon ripple">
+        <a class="a-title" href="./create/">
+          <img class="icon" src="assets/icons/add.svg" />
+        </a>
+      </div>
+      <div class="app-title">
+        <a class="a-title" href="."> Mural 2022 </a>
+      </div>
+      <div class="toolbar-icon">
+        <form id="form-search" autocomplete="off" class="form-search" action="">
+          <input
+            class="input-search"
+            name="search"
+            id="search"
+            type="search"
+            maxlength="20"
+            required
+          />
+          <button id="button-search" class="fa icon-search">
+            <img class="" src="assets/icons/search.svg" />
+          </button>
+        </form>
+      </div>
     </div>
 
-    
-    <div id="cards" class="cards">
-        
+    <div id="cards" class="cards"></div>
+
+    <div id="loader" class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
 
-    <div id="loader" class="lds-ring"><div></div><div></div><div></div><div></div></div>
-    
     <template>
-        <div class="card-conteiner margin-auto-center">
-            <div class="card-title" name="card-title">
-                <div class="card-title-text" id="card-title-text">
-                    Tenha um feliz 2022!
-                </div>
-            </div>
-            <div class="card-content-conteiner">
-                <div class="card-content" id="card-content">
-                    Teste do conteudo
-                </div>
-            </div>
-            <div name="card-footer" class="card-footer">
-                <div id="author" class="credits author"> Autor: </div>
-                <div hidden id="to" class="credits to"> </div>
-            </div>
+      <div class="card-conteiner margin-auto-center">
+        <div class="card-title" name="card-title">
+          <div class="card-title-text" id="card-title-text">
+            Tenha um feliz 2022!
+          </div>
         </div>
+        <div class="card-content-conteiner">
+          <div class="card-content" id="card-content">Teste do conteudo</div>
+        </div>
+        <div name="card-footer" class="card-footer">
+          <div id="author" class="credits author">Autor:</div>
+          <div hidden id="to" class="credits to"></div>
+        </div>
+      </div>
     </template>
 
     <script src="_bundle.js"></script>
-</body>
+  </body>
 </html>

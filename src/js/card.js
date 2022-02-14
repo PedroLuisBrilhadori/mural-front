@@ -18,27 +18,28 @@ function cardCreate(post, i) {
 
 function setCardContent(i, cardContent) {
   let card = {
-    title: document.getElementsByClassName("card-title-text")[i].innerHTML,
-    message: document.getElementsByClassName("card-content")[i].innerHTML,
-    author: document.getElementsByClassName("author")[i].innerHTML,
-    to: document.getElementsByName("card-footer")[i],
+    title: document.getElementsByClassName("card-title-text")[i],
+    message: document.getElementsByClassName("card-content")[i],
+    author: document.getElementsByClassName("author")[i],
+    to: document.getElementsByClassName("to")[i],
+    footer: document.getElementsByClassName("card-footer")[i],
   };
 
-  card.title = cardContent.title;
-  card.message = cardContent.message;
+  card.title.innerHTML = cardContent.title;
+  card.message.innerHTML = cardContent.message;
 
   if (cardContent.author) {
-    card.author = "Autor(a): " + cardContent.author;
+    card.author.innerHTML = `Autor(a): ${cardContent.author}`;
   }
 
   if (!cardContent.to) {
-    card.to.className = "card-footer-center";
+    card.footer.className = "card-footer center";
     return;
   }
 
-  card.to = "Para: " + cardContent.to;
+  card.to.innerHTML = `Para: ${cardContent.to}`;
   card.to.removeAttribute("hidden");
-  card.author = "De: " + cardContent.author;
+  card.author.innerHTML = `De: ${cardContent.author}`;
 }
 
 function setBreakLine(string) {
