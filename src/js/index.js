@@ -7,7 +7,7 @@ card.cardCreate(
     title: "Parabéns!!",
     message:
       "PARABÉNSSS! Você é mt mesmo, espero que seja sempre felizzz! Uma pessoa simplesmente muito foda!! \n <3 <3 <3",
-    author: "Pedro",
+    author: "Pedrinho",
     to: "Matheus",
   },
   0
@@ -15,7 +15,11 @@ card.cardCreate(
 
 card.cardFilter();
 
-let data = fetch(url)
+let data = fetch(url, {
+  headers: {
+    'Content-Application': 'application/json'
+  }
+})
   .then((response) => {
       return response.json();
   })
