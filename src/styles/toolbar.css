@@ -32,6 +32,8 @@
 
 .icon{
     margin: 10px;
+    border: black solid 1px;
+    border-radius: 50%;
 }
 
 .form-search{

@@ -1,11 +1,10 @@
 document.getElementById('done').addEventListener('click', (e) => {
-    if( grecaptcha.getResponse() != ''){
-        if(document.getElementById('form').checkValidity()){
-            document.getElementById('form').submit();
-        } else 
+    if(!document.getElementById('form').checkValidity()){
         window.alert('Preencha os dados, por favor!');
-    } else 
-        window.alert('Confirme o CAPTCHA, por favor!');
+        return; 
+    } 
+    
+    document.getElementById('form').submit();
 })
 
 if(location.search){

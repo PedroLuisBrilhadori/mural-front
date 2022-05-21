@@ -1,14 +1,15 @@
 import "../styles/style.scss";
-const url = "https://app-mural.herokuapp.com/mural";
+// const url = "https://app-mural.herokuapp.com/mural";
+const url = "http://localhost:3000/mural";
 const card = require("./card");
 
 card.cardCreate(
   {
-    title: "Menssagens Para Vocês",
+    title: "Parabéns!!",
     message:
-      "Você pode deixar sua menssagem clicando no icone de mais a esquerda! \n\n A mensagem deve ter um titulo e pode ter até 300 caracteres (mais que o tt). \n\n Na lupinha, você pode pesquisar nome de pessoas e filtrar menssagem enviadas ou recebidas por ela.",
+      "PARABÉNSSS! Você é mt mesmo, espero que seja sempre felizzz! Você é simplesmente muito foda!! <3 <3 <3",
     author: "Pedro",
-    to: "Todos",
+    to: "Matheus",
   },
   0
 );
@@ -17,11 +18,19 @@ card.cardFilter();
 
 let data = fetch(url)
   .then((response) => {
-    return response.json();
+      return response.json();
   })
   .then();
 
 data.then((posts) => {
+  document
+  .getElementById("loader")
+  .parentNode.removeChild(document.getElementById("loader"));
+  
+  if(posts.id == 0 && posts.title == '' && posts.message == ''){
+    return;
+  }
+
   Object.keys(posts).forEach((i, index) => {
     const post = {
       id: posts[i].id,
@@ -33,14 +42,5 @@ data.then((posts) => {
     card.cardCreate(post, index + 1);
   });
   card.cardPage();
-  document
-    .getElementById("loader")
-    .parentNode.removeChild(document.getElementById("loader"));
   card.cardFilter();
-});
-
-document.getElementById("button-search").addEventListener("click", () => {
-  if (document.getElementById("search").value) {
-    document.getElementById("form-search").submit();
-  }
 });
