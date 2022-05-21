@@ -13,23 +13,14 @@
     <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <link rel="stylesheet" type="text/css" href="../styles/toolbar.css">
     <link rel="stylesheet" type="text/css" href="../styles/form.css">
+    <link rel="stylesheet" type="text/css" href="./main.css">
 </head>
 <body>
     <div class="toolbar-app" id="toolbar">
-        <div class="toolbar-icon ripple">
-            <a class="a-title" href="..">
-                <img class="icon" src="../assets/icons/back.svg">
-            </a>
-        </div>
         <div class="app-title"> 
             <a class="a-title" href="..">
                 Parabéns Matheus
             </a>
-        </div>
-        <div class="toolbar-icon ripple">
-            <button class="button-toolbar" id="done">
-                <img class="icon" src="../assets/icons/done.svg">
-            </button>
         </div>
     </div>
 
@@ -52,11 +43,22 @@
             </div> <br>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input inputs" type="text" id="to" name="to">
-                <label class="mdl-textfield__label labels" for="sample3">Nome De Alguém (opcional)...</label>
+                <input class="mdl-textfield__input inputs" value="Matheus" type="text" id="to" name="to">
+                <label class="mdl-textfield__label labels" for="sample3">Matheus</label>
             </div> <br>
-
         </form>
+
+        
+        <div class="buttons-create"> 
+            <button id="cancel" class="button-create-cancel btn"> 
+                Cancelar
+            </button>
+
+            <button class="button-create-confirm bnt" id="done">
+                Comfirmar
+            </button>
+        </div>
+
     </div>
     <script src="./main.js"></script>
 </body>

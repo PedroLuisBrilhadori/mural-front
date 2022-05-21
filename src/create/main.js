@@ -3,7 +3,7 @@ document.getElementById('done').addEventListener('click', (e) => {
         window.alert('Preencha os dados, por favor!');
         return; 
     } 
-    
+
     document.getElementById('form').submit();
 })
 
@@ -21,3 +21,8 @@ if(location.search){
                 location.search = '';
     } 
 }
+
+
+document.getElementById('cancel').addEventListener('click', () => {
+    document.location.href = document.location.href.replace('/create/', '')
+})

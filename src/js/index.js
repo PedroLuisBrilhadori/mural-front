@@ -1,13 +1,12 @@
 import "../styles/style.scss";
-// const url = "https://app-mural.herokuapp.com/mural";
-const url = "http://localhost:3000/mural";
+const url = "https://app-mural.herokuapp.com/mural";
 const card = require("./card");
 
 card.cardCreate(
   {
     title: "Parabéns!!",
     message:
-      "PARABÉNSSS! Você é mt mesmo, espero que seja sempre felizzz! Você é simplesmente muito foda!! <3 <3 <3",
+      "PARABÉNSSS! Você é mt mesmo, espero que seja sempre felizzz! Uma pessoa simplesmente muito foda!! \n <3 <3 <3",
     author: "Pedro",
     to: "Matheus",
   },
@@ -43,4 +42,8 @@ data.then((posts) => {
   });
   card.cardPage();
   card.cardFilter();
-});
+}).catch(err => {
+  document
+  .getElementById("loader")
+  .parentNode.removeChild(document.getElementById("loader"));
+})
