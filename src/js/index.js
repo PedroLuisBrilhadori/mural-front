@@ -22,6 +22,7 @@ let data = fetch(url)
   .then();
 
 data.then((posts) => {
+  document.getElementById('add-icon').removeAttribute('hidden')
   document
   .getElementById("loader")
   .parentNode.removeChild(document.getElementById("loader"));
@@ -46,4 +47,6 @@ data.then((posts) => {
   document
   .getElementById("loader")
   .parentNode.removeChild(document.getElementById("loader"));
+  document.getElementById('add-icon').removeAttribute('hidden')
+
 })
